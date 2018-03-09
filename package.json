@@ -1,0 +1,14 @@
+{
+  "name": "duck-tools",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "",
+    "build": "tsc index.ts"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.104",
+    "lodash": "^4.17.5"
+  }
+}
