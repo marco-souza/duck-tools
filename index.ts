@@ -1,4 +1,5 @@
 import * as _ from 'lodash'
+import { connect } from 'react-redux'
 
 type Action = {
   payload: any,
@@ -30,7 +31,7 @@ export const defineReducer = (reducersMap: any, getDefaultState = () => {}) => {
   }
 }
 
-export const defineTypes = ( obj: any, valuePrefix: string ) => {
+export const defineTypes = (obj: any, valuePrefix: string) => {
   valuePrefix = valuePrefix || ''
   let ret = obj
 
@@ -42,3 +43,14 @@ export const defineTypes = ( obj: any, valuePrefix: string ) => {
 
   return ret
 }
+
+export const defaultReducerFunction = (param: any) => (state: any, payload: any) =>
+  ({ ...state, [param]: payload })
+
+export const defaultTypeCreateFunction = (type: any) => (payload: any) => ({
+  type,
+  payload
+})
+
+export const use = (mapStateToProps: any, mapDispatchToProps: any) => (Component: any) =>
+    connect(mapStateToProps, mapDispatchToProps)(Component)
